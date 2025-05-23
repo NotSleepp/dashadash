@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-accent: #3b82f6;
+  --color-border: #e5e7eb;
+}
+
+html.dark {
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #1f2937;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-accent: #60a5fa;
+  --color-border: #374151;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-bg-primary)] text-[var(--color-text-primary)];
+  }
+}
