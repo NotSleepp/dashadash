@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { Icon } from 'lucide-vue-next';
+import DynamicIcon from '../DynamicIcon.vue';
 
 const props = defineProps({
   item: {
@@ -21,7 +21,7 @@ const isActive = computed(() => {
 });
 
 const iconName = computed(() => {
-  return props.item.icon || 'Circle';
+  return props.item.icon || 'circle';
 });
 </script>
 
@@ -35,7 +35,7 @@ const iconName = computed(() => {
       'space-x-3': !collapsed 
     }"
   >
-    <Icon 
+    <DynamicIcon 
       :name="iconName" 
       class="flex-shrink-0 w-5 h-5 text-[var(--color-accent)]"
       :class="{ 'mr-0': collapsed }"

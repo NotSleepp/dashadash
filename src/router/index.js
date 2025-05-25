@@ -44,7 +44,25 @@ const routes = [
       //   name: 'admin-users',
       //   component: () => import('adminApp/UserManagementPage'),
       //   meta: { title: 'Gestión de Usuarios' }
-      // }
+      // },
+      {
+        path: 'remote',
+        name: 'remote-view',
+        component: () => import('remoteApp/RemoteView'),
+        meta: { title: 'Vista Remota' }
+      },
+      {
+        path: 'remote-component',
+        name: 'remote-component',
+        component: () => import('../views/RemoteComponentView.vue'),
+        meta: { title: 'Componente Remoto' }
+      },
+      {
+        path: 'iframe-remote',
+        name: 'iframe-remote',
+        component: () => import('../views/IframeRemoteView.vue'),
+        meta: { title: 'Iframe Remoto' }
+      }
     ]
   },
   // Ruta para manejar 404

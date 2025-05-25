@@ -2,7 +2,7 @@
 import { useUiStore } from '../../store/ui.store';
 import { useAuthStore } from '../../store/auth.store';
 import NavLink from './NavLink.vue';
-import { Icon } from 'lucide-vue-next';
+import { ChevronRight, ChevronLeft, LogOut } from 'lucide-vue-next';
 
 const uiStore = useUiStore();
 const authStore = useAuthStore();
@@ -22,10 +22,8 @@ const authStore = useAuthStore();
         @click="uiStore.toggleSidebar"
         class="p-1 rounded-md hover:bg-[var(--color-bg-secondary)]"
       >
-        <Icon 
-          :name="uiStore.isSidebarCollapsed ? 'ChevronRight' : 'ChevronLeft'" 
-          class="w-5 h-5"
-        />
+        <ChevronRight v-if="uiStore.isSidebarCollapsed" class="w-5 h-5" />
+        <ChevronLeft v-else class="w-5 h-5" />
       </button>
     </div>
     
@@ -46,7 +44,7 @@ const authStore = useAuthStore();
         :class="{ 'justify-center': uiStore.isSidebarCollapsed }"
         @click="authStore.logout()"
       >
-        <Icon name="LogOut" class="w-5 h-5 text-red-500" />
+        <LogOut class="w-5 h-5 text-red-500" />
         <span v-if="!uiStore.isSidebarCollapsed" class="ml-3">Cerrar sesión</span>
       </div>
     </div>
