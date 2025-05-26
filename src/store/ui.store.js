@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
+import { themeService, THEMES } from '../services/ThemeService';
 
 export const useUiStore = defineStore('ui', () => {
   // Estado
-  const theme = ref(localStorage.getItem('theme') || 'light');
+  const theme = computed(() => themeService.currentTheme.value);
   const isSidebarCollapsed = ref(localStorage.getItem('isSidebarCollapsed') === 'true');
   const menuItems = ref(JSON.parse(localStorage.getItem('menuItems') || '[]'));
 
@@ -24,8 +25,7 @@ export const useUiStore = defineStore('ui', () => {
 
   // Acciones
   function toggleTheme() {
-    theme.value = theme.value === 'light' ? 'dark' : 'light';
-    localStorage.setItem('theme', theme.value);
+    themeService.toggleTheme();
   }
 
   function toggleSidebar() {
@@ -40,6 +40,7 @@ export const useUiStore = defineStore('ui', () => {
       const defaultMenuItems = [
         { id: 'home', label: 'Inicio', path: '/dashboard', icon: 'home', order: 1 },
         { id: 'profile', label: 'Perfil', path: '/dashboard/perfil', icon: 'user', order: 2 },
+        { id: 'remote-example', label: 'Ejemplo Remoto', path: '/dashboard/remote-example', icon: 'activity', order: 3 },
       ];
       menuItems.value = defaultMenuItems;
       localStorage.setItem('menuItems', JSON.stringify(defaultMenuItems));

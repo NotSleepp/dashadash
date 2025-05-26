@@ -51,17 +51,16 @@ const routes = [
         component: () => import('remoteApp/RemoteView'),
         meta: { title: 'Vista Remota' }
       },
-      {
-        path: 'remote-component',
+      {        path: 'remote-component',
         name: 'remote-component',
         component: () => import('../views/RemoteComponentView.vue'),
         meta: { title: 'Componente Remoto' }
       },
       {
-        path: 'iframe-remote',
-        name: 'iframe-remote',
-        component: () => import('../views/IframeRemoteView.vue'),
-        meta: { title: 'Iframe Remoto' }
+        path: 'remote-example',
+        name: 'remote-example',
+        component: () => import('../views/RemoteExampleView.vue'),
+        meta: { title: 'Ejemplo Remoto Mejorado' }
       }
     ]
   },
